@@ -17,7 +17,7 @@
         
         body {
             font-family: 'Noto Sans SC', sans-serif;
-            background-color: #faf8f6;
+            background-color: #fdfcfb;
             color: var(--dark);
             -webkit-font-smoothing: antialiased;
         }
@@ -25,114 +25,210 @@
         .serif { font-family: 'Noto Serif SC', serif; }
         .handwriting { font-family: 'Zhi Mang Xing', cursive; }
 
-        .destination-card {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.7s ease-in-out;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .accordion-active .accordion-content {
-            max-height: 4000px;
+            max-height: 2000px;
         }
 
         .hero-gradient {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1972&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
 
         .gallery-img {
-            transition: all 0.4s ease;
-            cursor: pointer;
+            transition: all 0.3s ease;
             aspect-ratio: 1/1;
             object-fit: cover;
             border-radius: 12px;
+            background: #f0f0f0;
         }
 
         .gallery-img:hover {
-            filter: brightness(0.9);
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .tag-pill {
             @apply px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase;
         }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .spot-tag {
+            @apply text-xs bg-stone-100 text-stone-600 px-2 py-1 rounded mr-2 mb-2 inline-block;
+        }
+
+        .ootd-card {
+            @apply bg-rose-50/50 border border-rose-100 p-4 rounded-2xl text-sm leading-loose text-rose-900;
+        }
+
+        .experience-item {
+            @apply mb-3 flex items-start text-sm text-stone-600 leading-relaxed;
+        }
+        .experience-item i {
+            @apply mt-1 mr-2 text-[10px] opacity-50;
+        }
     </style>
 </head>
 <body class="pb-24">
 
     <!-- Hero Section -->
-    <header class="hero-gradient h-[75vh] flex flex-col items-center justify-center text-white text-center px-6">
-        <span class="text-xs tracking-[0.5em] mb-4 opacity-80 uppercase">The First Journey Together</span>
-        <h1 class="serif text-5xl md:text-7xl font-bold mb-6">我们要去哪？</h1>
-        <p class="handwriting text-2xl md:text-3xl opacity-90">2026 春节，想和你一起逃跑。</p>
-        
-        <div class="mt-16 flex flex-col items-center">
-            <div class="w-px h-24 bg-gradient-to-b from-white to-transparent opacity-50"></div>
-            <p class="text-[10px] mt-4 tracking-[0.4em] opacity-60">SCROLL TO EXPLORE</p>
-        </div>
+    <header class="hero-gradient h-[50vh] flex flex-col items-center justify-center text-white text-center px-6">
+        <h1 class="serif text-5xl font-bold mb-4 tracking-tight">我们要去哪？</h1>
+        <p class="handwriting text-2xl opacity-90">2026 春节 · 私藏出游目的地手册</p>
     </header>
 
     <main class="max-w-4xl mx-auto px-4 -mt-12 relative z-10">
         
-        <!-- Intro Card -->
-        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 mb-12 text-center shadow-sm border border-white/50">
-            <p class="text-sm text-gray-500 leading-relaxed">
-                嘿，这是我为你整理的五个目的地。不用担心攻略，你只需要负责漂亮和开心。选一个你最心动的，剩下的交给我。
+        <!-- Welcome Card -->
+        <div class="bg-white rounded-3xl p-8 mb-12 text-center shadow-xl border border-stone-100">
+            <p class="text-stone-500 leading-relaxed italic text-sm">
+                “保持热爱，奔赴山海。以下是为你精选的5个心动目的地。”
             </p>
         </div>
 
-        <!-- 01 UAE -->
-        <section class="destination-card bg-white rounded-[2rem] shadow-2xl overflow-hidden mb-16 border border-gray-100">
-            <div class="relative h-80">
-                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-8 left-8 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="tag-pill bg-yellow-500 text-white">奢享度假</span>
-                        <span class="tag-pill bg-white/20 backdrop-blur">免签</span>
-                    </div>
-                    <h2 class="serif text-4xl font-bold">阿联酋 · 迪拜 & 阿布扎比</h2>
+        <!-- 01: 阿联酋 -->
+        <section class="bg-white rounded-[2rem] shadow-xl overflow-hidden mb-12 border border-stone-100">
+            <div class="relative h-72">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200" class="w-full h-full object-cover" alt="Dubai">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-8 text-white">
+                    <span class="tag-pill bg-amber-500 text-white mb-2 inline-block">极致奢享</span>
+                    <h2 class="serif text-3xl font-bold">阿联酋 · 迪拜 & 阿布扎比</h2>
                 </div>
             </div>
             
-            <div class="p-8">
-                <div class="grid grid-cols-3 gap-4 mb-10 text-center border-b border-gray-50 pb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">温度</p><p class="text-sm font-bold">22°C 恒温</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">飞行</p><p class="text-sm font-bold">8h 直飞</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">预算</p><p class="text-sm font-bold text-yellow-600">Premium</p></div>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="accordion-item border-b border-gray-50">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-camera-retro mr-3 text-yellow-500"></i>必打卡的瞬间</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+            <div class="p-6">
+                <div class="space-y-2">
+                    <!-- 1. 景点介绍 -->
+                    <div class="accordion-item border-b border-stone-50 accordion-active">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-map-marked-alt mr-3 text-amber-500"></i>目的地灵感清单</span>
+                            <i class="fas fa-chevron-down text-xs transition-transform rotate-180"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-8">
-                                <img src="https://images.unsplash.com/photo-1551047300-31268ee3c857?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="卢浮宫">
-                                <img src="https://images.unsplash.com/photo-1544161442-e3db36c4f67c?q=80&w=1976&auto=format&fit=crop" class="gallery-img shadow-lg" alt="清真寺">
-                                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1974&auto=format&fit=crop" class="gallery-img shadow-lg" alt="沙漠">
-                                <img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1974&auto=format&fit=crop" class="gallery-img shadow-lg" alt="帆船酒店">
+                            <div class="pb-4">
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>走进<strong>谢赫扎耶德大清真寺</strong>，在纯白大理石与落日余晖中感受震撼的建筑美学。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>登顶<strong>哈利法塔</strong>观赏云端日落，俯瞰整座沙漠城市的繁华奇迹。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>漫步<strong>阿布扎比卢浮宫</strong>的海上穹顶，体验光影洒在海面上的艺术氛围。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>入住 <strong>Qasr Al Sarab 沙漠酒店</strong>，在无垠沙丘中体验私人晚宴与漫天星空。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2. 图片展示 -->
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-camera-retro mr-3 text-amber-500"></i>视觉预告</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-6">
+                                <img src="https://images.unsplash.com/photo-1628859017536-c2f1d69f3c84?q=80&w=1537&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1510665724063-f77a01074aa2?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=400" class="gallery-img">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3. OOTD -->
+                    <div class="accordion-item">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-tshirt mr-3 text-rose-400"></i>OOTD 穿搭建议</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="pb-6">
+                                <div class="ootd-card">
+                                    <p>🕌 <strong>清真寺/文化地：</strong> 建议带一套纯白或香槟色的丝绸长裙，在建筑的大理石背景下非常出片。注意进入寺庙需要长衣长裤遮盖肢体。</p>
+                                    <p class="mt-2">🌵 <strong>沙漠/酒店：</strong> 准备一件亮红色或明黄色的露背裙，在漫天黄沙中你是绝对的主角。男生可以搭配浅色棉麻衬衫。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02: 新加坡 -->
+        <section class="bg-white rounded-[2rem] shadow-xl overflow-hidden mb-12 border border-stone-100">
+            <div class="relative h-72">
+                <img src="https://plus.unsplash.com/premium_photo-1697730373939-3ebcaa9d295e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-full h-full object-cover" alt="Singapore">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-8 text-white">
+                    <span class="tag-pill bg-indigo-600 text-white mb-2 inline-block">摩登都市</span>
+                    <h2 class="serif text-3xl font-bold">新加坡 · 狮城漫游</h2>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="space-y-2">
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-map-marked-alt mr-3 text-indigo-500"></i>目的地灵感清单</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="pb-4">
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>在<strong>滨海湾花园超级树</strong>下看一场梦幻灯光秀，穿梭于未来感十足的天空走道。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>跳进<strong>金沙顶层无边泳池</strong>，一边游泳一边俯瞰新加坡极致的摩登夜景。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>去<strong>环球影城</strong>全天开启疯玩模式，在过山车与电影场景里释放快乐。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>穿梭在<strong>哈芝巷</strong>的文艺涂鸦墙之间，找一家有趣的小店喝杯咖啡虚度午后。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-camera-retro mr-3 text-indigo-500"></i>视觉预告</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-6">
+                                <img src="https://images.unsplash.com/photo-1525596662741-e94ff9f26de1?w=400" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1580438816338-969175d4b367?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-tshirt mr-3 text-pink-400"></i>OOTD 穿搭建议</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-tshirt mr-3 text-rose-400"></i>OOTD 穿搭建议</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="bg-pink-50/50 rounded-xl p-5 mb-6 text-sm text-gray-600 leading-loose">
-                                建议带一件<span class="text-pink-600 font-bold underline">白色或大红色的长裙</span>，在沙漠里拍照超级出片！
+                            <div class="pb-6">
+                                <div class="ootd-card">
+                                    <p>🏙️ <strong>都市感：</strong> 建议选择“城市机能风”或法式简约风。饱和度高的颜色（如宝蓝色或明黄）在绿植遍布的新加坡非常显眼。</p>
+                                    <p class="mt-2">🏊 <strong>泳池/夜生活：</strong> 准备一套剪裁大胆的高级泳衣（金沙泳池标配），以及一套适合在克拉码头酒吧街穿的小吊带裙。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,50 +236,70 @@
             </div>
         </section>
 
-        <!-- 02 Singapore -->
-        <section class="destination-card bg-white rounded-[2rem] shadow-2xl overflow-hidden mb-16 border border-gray-100">
-            <div class="relative h-80">
-                <img src="https://images.unsplash.com/photo-1525625239513-9973ca0ec100?q=80&w=1929&auto=format&fit=crop" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-8 left-8 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="tag-pill bg-purple-600 text-white">摩登都市</span>
-                        <span class="tag-pill bg-white/20 backdrop-blur">免签</span>
-                    </div>
-                    <h2 class="serif text-4xl font-bold">新加坡 · 狮城漫游</h2>
+        <!-- 03: 斯里兰卡 -->
+        <section class="bg-white rounded-[2rem] shadow-xl overflow-hidden mb-12 border border-stone-100">
+            <div class="relative h-72">
+                <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=1200" class="w-full h-full object-cover" alt="Sri Lanka">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-8 text-white">
+                    <span class="tag-pill bg-emerald-600 text-white mb-2 inline-block">电影感之旅</span>
+                    <h2 class="serif text-3xl font-bold">斯里兰卡 · 兰卡之梦</h2>
                 </div>
             </div>
             
-            <div class="p-8">
-                <div class="grid grid-cols-3 gap-4 mb-10 text-center border-b border-gray-50 pb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">温度</p><p class="text-sm font-bold">28°C 恒夏</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">飞行</p><p class="text-sm font-bold">5h 直飞</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">预算</p><p class="text-sm font-bold text-purple-600">Middle-High</p></div>
-                </div>
-                <!-- Accordions similar to above -->
-                <div class="space-y-4">
-                    <div class="accordion-item border-b border-gray-50">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-camera-retro mr-3 text-purple-500"></i>必打卡的瞬间</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+            <div class="p-6">
+                <div class="space-y-2">
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-map-marked-alt mr-3 text-emerald-500"></i>目的地灵感清单</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-8">
-                                <img src="https://images.unsplash.com/photo-1525596662741-e94ff9f26de1?q=80&w=1974&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Gardens">
-                                <img src="https://images.unsplash.com/photo-1506351466446-97480e4168a6?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Jewel">
-                                <img src="https://images.unsplash.com/photo-1559592442-7489ac9f394c?q=80&w=2071&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Sentosa">
-                                <img src="https://images.unsplash.com/photo-1518173946687-a4c810723983?q=80&w=1974&auto=format&fit=crop" class="gallery-img shadow-lg" alt="City">
+                            <div class="pb-4">
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>坐上<strong>《千与千寻》海上火车</strong>，在印度洋的海风中体验现实版的宫崎骏电影场景。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>在<strong>高山茶园</strong>里亲手采摘嫩芽，感受英伦庄园风情与漫山的清甜茶香。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>攀登世界奇迹<strong>狮子岩</strong>，在古老的宫殿遗址上俯瞰原始丛林的壮美景观。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>在<strong>加勒古城</strong>的旧城墙边等待一场海上日落，看巨浪拍打在斑驳的城砖上。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-camera-retro mr-3 text-emerald-500"></i>视觉预告</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-6">
+                                <img src="https://images.unsplash.com/photo-1612862862126-865765df2ded?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1625642471723-12744e6e4211?w=400" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1580910527739-556eb89f9d65?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1574611122955-5baa61496637?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-tshirt mr-3 text-pink-400"></i>OOTD 穿搭建议</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-tshirt mr-3 text-rose-400"></i>OOTD 穿搭建议</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="bg-pink-50/50 rounded-xl p-5 mb-6 text-sm text-gray-600 leading-loose">
-                                走“<span class="text-pink-600 font-bold underline">财阀千金风</span>”准没错。小香风或者剪裁利落的连衣裙都很搭狮城。
+                            <div class="pb-6">
+                                <div class="ootd-card">
+                                    <p>🚂 <strong>火车/茶园：</strong> “宫崎骏女孩”风。白色连衣裙搭配草帽，或者墨绿色的复古裙装，能完美融入绿色茶园和红色火车的色调中。</p>
+                                    <p class="mt-2">🧘 <strong>人文/寺庙：</strong> 斯里兰卡很多寺庙强制要求穿白色衣服进入，可以准备一套素净的白色棉麻服饰。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,49 +307,70 @@
             </div>
         </section>
 
-        <!-- 03 Sri Lanka -->
-        <section class="destination-card bg-white rounded-[2rem] shadow-2xl overflow-hidden mb-16 border border-gray-100">
-            <div class="relative h-80">
-                <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2010&auto=format&fit=crop" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-8 left-8 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="tag-pill bg-green-600 text-white">异域风情</span>
-                        <span class="tag-pill bg-white/20 backdrop-blur">高性价比</span>
-                    </div>
-                    <h2 class="serif text-4xl font-bold">斯里兰卡 · 兰卡时光</h2>
+        <!-- 04: 越南 -->
+        <section class="bg-white rounded-[2rem] shadow-xl overflow-hidden mb-12 border border-stone-100">
+            <div class="relative h-72">
+                <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1200" class="w-full h-full object-cover" alt="Vietnam">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-8 text-white">
+                    <span class="tag-pill bg-rose-600 text-white mb-2 inline-block">文艺小众</span>
+                    <h2 class="serif text-3xl font-bold">越南 · 岘港漫游</h2>
                 </div>
             </div>
             
-            <div class="p-8">
-                <div class="grid grid-cols-3 gap-4 mb-10 text-center border-b border-gray-50 pb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">温度</p><p class="text-sm font-bold">28°C 暖夏</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">飞行</p><p class="text-sm font-bold">7h 直飞</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">预算</p><p class="text-sm font-bold text-green-600">Value</p></div>
-                </div>
-                <div class="space-y-4">
-                    <div class="accordion-item border-b border-gray-50">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-camera-retro mr-3 text-green-500"></i>必打卡的瞬间</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+            <div class="p-6">
+                <div class="space-y-2">
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-map-marked-alt mr-3 text-rose-500"></i>目的地灵感清单</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-8">
-                                <img src="https://images.unsplash.com/photo-1625642471723-12744e6e4211?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Train">
-                                <img src="https://images.unsplash.com/photo-1550953331-50262137025f?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Galle">
-                                <img src="https://images.unsplash.com/photo-1589133446549-c9233f24097e?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Fishing">
-                                <img src="https://images.unsplash.com/photo-1583095117180-877f80459341?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Safari">
+                            <div class="pb-4">
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>云端漫步在<strong>黄金佛手桥</strong>，穿越巴拿山上的欧洲小镇，感受法式假期的浪漫。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>夜晚去<strong>会安古镇</strong>彩灯漫步，在五颜六色的灯笼光影里感受时光倒流。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>在<strong>美溪沙滩</strong>等一场日落晚霞，感受“全球最美海滩”带来的纯粹安宁。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>造访浪漫的<strong>粉红大教堂</strong>，在少女心爆棚的建筑前留下我们的合影纪念。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-camera-retro mr-3 text-rose-500"></i>视觉预告</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-6">
+                                <img src="https://plus.unsplash.com/premium_photo-1719955783083-6a0bd66c5f75?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1609412058473-c199497c3c5d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1598539961915-040bb3be3f69?w=400" class="gallery-img">
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-tshirt mr-3 text-pink-400"></i>OOTD 穿搭建议</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-tshirt mr-3 text-rose-400"></i>OOTD 穿搭建议</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="bg-pink-50/50 rounded-xl p-5 mb-6 text-sm text-gray-600 leading-loose">
-                                适合<span class="text-pink-600 font-bold underline">法式碎花或者波西米亚风</span>。姜黄色背景和鲜艳裙子是绝配。
+                            <div class="pb-6">
+                                <div class="ootd-card">
+                                    <p>🏮 <strong>古镇风：</strong> 在会安灯笼街，选择越南特色的奥黛（Ao Dai）或碎花复古裙，色彩可以稍微丰富一点。</p>
+                                    <p class="mt-2">🏖️ <strong>海滩/城堡：</strong> 巴拿山气温稍低，带件漂亮的小针织衫。沙滩拍照首选各种飘逸的长裙。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -241,206 +378,100 @@
             </div>
         </section>
 
-        <!-- 04 Vietnam -->
-        <section class="destination-card bg-white rounded-[2rem] shadow-2xl overflow-hidden mb-16 border border-gray-100">
-            <div class="relative h-80">
-                <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-8 left-8 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="tag-pill bg-red-600 text-white">文艺小众</span>
-                        <span class="tag-pill bg-white/20 backdrop-blur">物价感人</span>
-                    </div>
-                    <h2 class="serif text-4xl font-bold">越南 · 岘港 & 会安</h2>
+        <!-- 05: 马来西亚 -->
+        <section class="bg-white rounded-[2rem] shadow-xl overflow-hidden mb-12 border border-stone-100">
+            <div class="relative h-72">
+                <img src="https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1200" class="w-full h-full object-cover" alt="Malaysia">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-6 left-8 text-white">
+                    <span class="tag-pill bg-sky-600 text-white mb-2 inline-block">海岛度假</span>
+                    <h2 class="serif text-3xl font-bold">马来西亚 · 浪漫时光</h2>
                 </div>
             </div>
             
-            <div class="p-8">
-                <div class="grid grid-cols-3 gap-4 mb-10 text-center border-b border-gray-50 pb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">温度</p><p class="text-sm font-bold">24°C 微凉</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">飞行</p><p class="text-sm font-bold">3.5h 直飞</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">预算</p><p class="text-sm font-bold text-red-600">Budget</p></div>
-                </div>
-                <div class="space-y-4">
-                    <div class="accordion-item border-b border-gray-50">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-camera-retro mr-3 text-red-500"></i>必打卡的瞬间</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+            <div class="p-6">
+                <div class="space-y-2">
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-map-marked-alt mr-3 text-sky-500"></i>目的地灵感清单</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-8">
-                                <img src="https://images.unsplash.com/photo-1555581464-10079069d255?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Bridge">
-                                <img src="https://images.unsplash.com/photo-1554904256-591f5672288a?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Hoi An">
-                                <img src="https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?q=80&w=1967&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Beach">
-                                <img src="https://images.unsplash.com/photo-1563821033221-36427357599b?q=80&w=1974&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Coffee">
+                            <div class="pb-4">
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>潜入<strong>仙本那果冻海</strong>，在玻璃般的清澈海水中与热带鱼群共舞，寻找绝美珊瑚。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>在吉隆坡塔观景台守候<strong>双子塔夜景</strong>，看城市地标在霓虹灯火中亮起璀璨光芒。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>漫步<strong>槟城旧城区</strong>，寻找藏在巷弄里的街头艺术涂鸦，品尝最地道的南洋美食。</span>
+                                </div>
+                                <div class="experience-item">
+                                    <i class="fas fa-circle"></i>
+                                    <span>登上一艘私人游艇进行<strong>兰卡威日落巡航</strong>，在夕阳海浪间碰杯共度极致浪漫。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-stone-50">
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-camera-retro mr-3 text-sky-500"></i>视觉预告</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-6">
+                                <img src="https://images.unsplash.com/photo-1596018138885-b88eb554411c?q=80&w=1066&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://plus.unsplash.com/premium_photo-1700955569542-735a654503bf?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1580496297468-1e05179cfd81?q=80&w=1065&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-img">
+                                <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=400" class="gallery-img">
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-tshirt mr-3 text-pink-400"></i>OOTD 穿搭建议</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
+                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left">
+                            <span class="font-bold text-stone-800"><i class="fas fa-tshirt mr-3 text-rose-400"></i>OOTD 穿搭建议</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="accordion-content">
-                            <div class="bg-pink-50/50 rounded-xl p-5 mb-6 text-sm text-gray-600 leading-loose">
-                                穿上一套<span class="text-pink-600 font-bold underline">改良旗袍或奥黛</span>，在会安的老房子前拍照非常特别。
+                            <div class="pb-6">
+                                <div class="ootd-card">
+                                    <p>🐠 <strong>海岛/浮潜：</strong> 准备几套色彩鲜艳的比基尼或连体泳衣。外搭一件半透明的沙滩衫，既防晒又优雅。</p>
+                                    <p class="mt-2">📷 <strong>槟城漫步：</strong> 建议复古风。格子半身裙或带有南洋气息的花衬衫，能拍出很有时光感的照片。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- 05 Malaysia -->
-        <section class="destination-card bg-white rounded-[2rem] shadow-2xl overflow-hidden mb-16 border border-gray-100">
-            <div class="relative h-80">
-                <img src="https://images.unsplash.com/photo-1552392869-7756f5a349bc?q=80&w=2073&auto=format&fit=crop" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-8 left-8 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="tag-pill bg-blue-600 text-white">海岛慢生活</span>
-                        <span class="tag-pill bg-white/20 backdrop-blur">免签</span>
-                    </div>
-                    <h2 class="serif text-4xl font-bold">马来西亚 · 槟城 & 兰卡威</h2>
-                </div>
-            </div>
-            
-            <div class="p-8">
-                <div class="grid grid-cols-3 gap-4 mb-10 text-center border-b border-gray-50 pb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">温度</p><p class="text-sm font-bold">30°C 热带</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">飞行</p><p class="text-sm font-bold">5.5h 直飞</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase mb-1">预算</p><p class="text-sm font-bold text-blue-600">Friendly</p></div>
-                </div>
-                <div class="space-y-4">
-                    <div class="accordion-item border-b border-gray-50">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-camera-retro mr-3 text-blue-500"></i>必打卡的瞬间</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-8">
-                                <img src="https://images.unsplash.com/photo-1596422846543-b5c64863e93c?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Beach">
-                                <img src="https://images.unsplash.com/photo-1567121938596-9d9d04625cd8?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Street">
-                                <img src="https://images.unsplash.com/photo-1626084013446-2f0851ec6501?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Blue">
-                                <img src="https://images.unsplash.com/photo-1626266061368-46a8f57846ad?q=80&w=2070&auto=format&fit=crop" class="gallery-img shadow-lg" alt="Food">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full py-4 text-left group">
-                            <span class="font-bold text-gray-800"><i class="fas fa-tshirt mr-3 text-pink-400"></i>OOTD 穿搭建议</span>
-                            <i class="fas fa-chevron-down text-[10px] text-gray-300 transition-transform"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="bg-pink-50/50 rounded-xl p-5 mb-6 text-sm text-gray-600 leading-loose">
-                                槟城复古，兰卡威清爽。戴上草帽，我们去岛上漫游。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Summary Table -->
-        <section class="mt-20">
-            <h3 class="serif text-center text-3xl font-bold mb-8">理性 PK 板块</h3>
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden no-scrollbar">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left min-w-[600px]">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="p-6 text-[10px] font-bold text-gray-400 uppercase tracking-widest">维度</th>
-                                <th class="p-6 text-sm font-bold">阿联酋</th>
-                                <th class="p-6 text-sm font-bold">新加坡</th>
-                                <th class="p-6 text-sm font-bold">马/新/越</th>
-                                <th class="p-6 text-sm font-bold">斯里兰卡</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm divide-y divide-gray-50">
-                            <tr>
-                                <td class="p-6 font-bold text-gray-500">拍照风格</td>
-                                <td class="p-6">高级、大气</td>
-                                <td class="p-6">时尚、摩登</td>
-                                <td class="p-6">复古、生活</td>
-                                <td class="p-6">电影感、野生</td>
-                            </tr>
-                            <tr>
-                                <td class="p-6 font-bold text-gray-500">省心指数</td>
-                                <td class="p-6">★★★★★</td>
-                                <td class="p-6">★★★★★</td>
-                                <td class="p-6">★★★★☆</td>
-                                <td class="p-6">★★★☆☆</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Voting Area -->
-        <section class="mt-24 text-center">
-            <h3 class="handwriting text-4xl text-pink-500 mb-8 font-bold">我想听听你的声音...</h3>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <button onclick="vote('阿联酋')" class="p-4 bg-white rounded-2xl border border-gray-100 shadow hover:shadow-lg transition active:scale-95 group">
-                    <span class="block text-2xl mb-2">🕌</span>
-                    <span class="text-[10px] font-bold text-gray-600 group-hover:text-pink-500">阿联酋</span>
-                </button>
-                <button onclick="vote('新加坡')" class="p-4 bg-white rounded-2xl border border-gray-100 shadow hover:shadow-lg transition active:scale-95 group">
-                    <span class="block text-2xl mb-2">🦁</span>
-                    <span class="text-[10px] font-bold text-gray-600 group-hover:text-pink-500">新加坡</span>
-                </button>
-                <button onclick="vote('斯里兰卡')" class="p-4 bg-white rounded-2xl border border-gray-100 shadow hover:shadow-lg transition active:scale-95 group">
-                    <span class="block text-2xl mb-2">🐘</span>
-                    <span class="text-[10px] font-bold text-gray-600 group-hover:text-pink-500">斯里兰卡</span>
-                </button>
-                <button onclick="vote('越南')" class="p-4 bg-white rounded-2xl border border-gray-100 shadow hover:shadow-lg transition active:scale-95 group">
-                    <span class="block text-2xl mb-2">🏮</span>
-                    <span class="text-[10px] font-bold text-gray-600 group-hover:text-pink-500">越南</span>
-                </button>
-                <button onclick="vote('马来西亚')" class="p-4 bg-white rounded-2xl border border-gray-100 shadow hover:shadow-lg transition active:scale-95 group">
-                    <span class="block text-2xl mb-2">🥥</span>
-                    <span class="text-[10px] font-bold text-gray-600 group-hover:text-pink-500">马来西亚</span>
-                </button>
-            </div>
-            <div id="voteMsg" class="mt-8 text-sm text-pink-400 font-bold hidden bg-pink-50 inline-block px-6 py-2 rounded-full">收到！立马准备！😉</div>
-        </section>
-
-        <section class="mt-24 text-center pb-24 border-t border-gray-100 pt-16">
-            <p class="serif text-xl italic text-gray-400 mb-4 px-4 leading-loose">
-                “世界很大，<br>但跟你一起出发才叫旅行。”
-            </p>
-            <div class="inline-block px-4 py-2 border-2 border-pink-100 rounded-full text-[10px] font-bold tracking-[0.3em] text-pink-300 uppercase">
-                Forever With You · 2026
             </div>
         </section>
 
     </main>
 
-    <!-- Navigation Bar -->
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/70 backdrop-blur-xl border-t border-gray-50 flex justify-around items-center z-50">
-        <button class="text-[10px] font-bold text-gray-400"><i class="fas fa-suitcase-rolling block text-lg mb-1"></i>打包清单</button>
-        <button class="text-[10px] font-bold text-pink-500 animate-pulse"><i class="fas fa-heart block text-lg mb-1"></i>选定出发</button>
-        <button class="text-[10px] font-bold text-gray-400"><i class="fas fa-wallet block text-lg mb-1"></i>费用预算</button>
+    <!-- Bottom Action -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-lg z-50">
+        <div class="bg-black/80 backdrop-blur-xl rounded-full p-2 flex items-center justify-between shadow-2xl border border-white/10">
+            <p class="text-white text-xs ml-6 font-medium">选好心动地了吗？</p>
+            <button onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'})" class="bg-white text-black text-xs font-bold px-6 py-3 rounded-full hover:bg-rose-500 hover:text-white transition">立刻出发 ✨</button>
+        </div>
     </div>
 
     <script>
         function toggleAccordion(btn) {
             const item = btn.parentNode;
             const icon = btn.querySelector('.fas.fa-chevron-down');
-            if (item.classList.contains('accordion-active')) {
+            const isActive = item.classList.contains('accordion-active');
+            
+            if (isActive) {
                 item.classList.remove('accordion-active');
                 if(icon) icon.style.transform = 'rotate(0deg)';
             } else {
-                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('accordion-active'));
-                document.querySelectorAll('.fas.fa-chevron-down').forEach(i => i.style.transform = 'rotate(0deg)');
                 item.classList.add('accordion-active');
                 if(icon) icon.style.transform = 'rotate(180deg)';
             }
-        }
-        function vote(dest) {
-            const msg = document.getElementById('voteMsg');
-            msg.classList.remove('hidden');
-            msg.innerText = "收到你对【" + dest + "】的心动啦！我会立马去查票~ 😉";
         }
     </script>
 </body>
